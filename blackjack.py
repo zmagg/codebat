@@ -14,16 +14,12 @@ def blackjack(player, dealer):
 
 def count_cards(hand):
     hand_value = 0
-    num_ones = 0
     for card in hand:
         if card is 1:
-            num_ones += 1
-            hand_value += 11
+            if hand_value > 10:
+                hand_value +=1
+            else:
+                hand_value += 11
         else:
             hand_value += card
-    i = 0
-    while hand_value > 21:
-        if i < num_ones:
-            hand_value -=10
-            i += 1
     return hand_value
